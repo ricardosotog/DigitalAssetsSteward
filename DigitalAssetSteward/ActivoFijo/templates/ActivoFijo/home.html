@@ -1,0 +1,23 @@
+{% extends "ActivoFijo/base.html" %}
+{% load static %}
+{% block title%}
+    Home
+{% endblock %}
+
+{% block content %}
+<h2 class="subtitulo">Bienvenido  </h2>
+<h3></h3>
+<br><br><br>
+<div class="d-grid gap-2 col-6 mx-auto">
+    <a href= "/activo"> <button class="btn btn-secondary" type="button">Activos</button> </a>
+    <a href="/software"><button class="btn btn-secondary" type="button">Software</button></a>
+    <a href="/consumible"><button class="btn btn-secondary" type="button">Consumible</button></a>
+    <a href="/hardware"><button class="btn btn-secondary" type="button">Hardware</button></a>
+    <a href="/telefonia"><button class="btn btn-secondary" type="button">Telefonia</button></a>
+    <a href="/plantelefono"><button class="btn btn-secondary" type="button">Plan Telefonia</button></a>
+    
+</div>
+
+
+
+{% endblock %}

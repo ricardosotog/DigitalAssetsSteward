@@ -1,0 +1,27 @@
+{% extends "ActivoFijo/base.html" %}
+{% block title%}
+    Login
+{% endblock %}
+
+{% block content %}
+
+<form method="post">
+   {% csrf_token %}
+    {{form }}
+    <div class="col-12" type="submit" class="from-group">
+        <button class="btn btn-primary" type="submit">Submit </button>
+    </div>
+</form>
+{% endblock %}
+<!--<form method="post">
+    <div class="mb-3">
+        <label for="Email" class="form-label" placeholder="Correo Electronico" aria-label="Correo Electronico">Usuario</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Correo Electronico" aria-label="Correo Electronico">
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+      <input type="password" class="form-control" >
+    </div>
+<div class="col-12" type="submit">
+    <button class="btn btn-primary" type="submit">Submit </button>
+</div>
+</form>

@@ -1,0 +1,15 @@
+{% extends "ActivoFijo/base.html" %}
+{% block title%}
+    Create ussers
+{% endblock %}
+
+{% block content %}
+
+<form method="POST" class="form-group">
+   {% csrf_token %}
+    {{form }}
+    <div class="col-12" type="submit" class="from-group">
+        <button class="btn btn-primary" type="submit">Register </button>
+    </div>
+</form>
+{% endblock %}
