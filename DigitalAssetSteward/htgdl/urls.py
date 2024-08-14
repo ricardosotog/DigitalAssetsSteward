@@ -17,9 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from register import views as v 
+from django.contrib.auth import urls
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('ActivoFijo.urls')),
-    path('login/', include("django.contrib.auth.urls")),
+    path('account/', include("django.contrib.auth.urls")),
 ]

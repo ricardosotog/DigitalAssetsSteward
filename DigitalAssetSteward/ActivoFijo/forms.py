@@ -12,7 +12,7 @@ class LoginForm(AuthenticationForm):
 class ActivoForm(ModelForm):
     class Meta:
        model = Activos
-       fields = ('kace','categoria','usuario_asignado','usuario_anterior','NoOrdenCompra','NoResponsiva','Sucursal','NoSerie','MarcaEquipo', 'ModeloEquipo','RAM')
+       fields = ('kace','categoria','usuario_asignado','usuario_anterior','NoOrdenCompra','NoResponsiva','Sucursal','NoSerie','MarcaEquipo', 'ModeloEquipo','RAM','Almacenamiento')
        labels = {
             'kace':'',
             'categoria':'',
@@ -25,6 +25,7 @@ class ActivoForm(ModelForm):
             'MarcaEquipo':'',
             'ModeloEquipo':'',
             'RAM':'',
+            'Almacenamiento':'',
        }
        widgets = {
            'kace': forms.TextInput(attrs={'class' :'form-control','placeholder':'Ticket KACE'}),
@@ -39,3 +40,20 @@ class ActivoForm(ModelForm):
             'ModeloEquipo':forms.TextInput(attrs={'class' :'form-control','placeholder':'Modelo del Equipo'}),
             'RAM':forms.TextInput(attrs={'class' :'form-control','placeholder':'Memoria RAM'}),
        }
+class SearchForm(ModelForm):
+    class Meta:
+       model = Activos
+       fields = ('kace','Category','WorkSpace','NoSerial')
+       labels = {
+            'kace':'',
+            'Category':'',
+            'WorkSpace':'',
+            'SerialNumber':'',
+            }
+       widgets = {
+           'kace': forms.TextInput(attrs={'class' :'form-control','placeholder':'Ticket KACE'}),
+           'categoria': forms.TextInput(attrs={'class' :'form-control','placeholder':'Categoria'}),
+           'WorkSpace': forms.TextInput(attrs={'class' :'form-control','placeholder':'Usuario Asignado'}),
+           'SerialNumber' : forms.TextInput(attrs={'class' :'form-control','placeholder':'Usuario Asignado'}),
+       }
+       

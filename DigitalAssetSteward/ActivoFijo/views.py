@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import LoginForm, ActivoForm
+from .forms import LoginForm, ActivoForm, SearchForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import auth
 from django.contrib.auth.decorators import login_required
@@ -9,18 +9,29 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def  home(request):
     return render(request,'ActivoFijo/home.html')
+@login_required
 def  activo(request):
     return render(request,'ActivoFijo/activo.html')
+@login_required
 def  software(request):
     return render(request,'ActivoFijo/software.html')
+@login_required
 def  consumible(request):
     return render(request,'ActivoFijo/consumible.html')
+@login_required
 def  hardware(request):
     return render(request,'ActivoFijo/hardware.html')
+@login_required
 def  telefonia(request):
     return render(request,'ActivoFijo/telefonia.html')
-def  plantelefono(request):
-    return render(request,'ActivoFijo/plantelefono.html')
+@login_required
+def asignaciones(request):
+    return render(request,'ActivoFijo/asignaciones.html')
+
+def logout(request):
+    auth.logout(request)
+    return redirect("ActivoFijo/")
+
 
 def Login(request):
     form =LoginForm()
@@ -32,12 +43,16 @@ def Login(request):
             user = authenticate (request, username=username, password=password)
             if user is not None:
                 auth.login(request,user)
-                return redirect("home")
+                return redirect("/home")
     return render(request, 'ActivoFijo/login.html',{'form':form})
 
 def Add_Activo(request):
-    #submitted = False
-    #if request.method =="POST":
-    form = ActivoForm
-    return render(request, 'ActivoFijo/activo.html',{'form':form})
+    if request.POST:
+        form = ActivoForm(request.POST)
+        if form.is_valid():
+            form.save
+        return render(request, 'ActivoFijo/home.html',{'form':ActivoForm})
+def SerchActivo(request):
+    form = SearchForm
+    return render(request, 'ActivoFijo/asignaciones.html',{'form':form})
 
